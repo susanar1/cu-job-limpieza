@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: limpieza-job
+  namespace: susanarodas-dev
+spec:
+  template:
+    metadata:
+      labels:
+        app: limpieza-job
+    spec:
+      containers:
+        - name: worker
+          image: busybox:1.36
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Iniciando proceso batch..."
+              sleep 10
+              echo "Procesando datos..."
+              sleep 5
+              echo "Proceso completado exitosamente"
+      restartPolicy: Never
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 
