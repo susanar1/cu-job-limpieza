@@ -23,4 +23,4 @@ spec:
               echo "Proceso completado exitosamente"
       restartPolicy: Never
   backoffLimit: 3
-  ttlSecondsAfterFinished: 
+  ttlSecondsAfterFinished: 300
